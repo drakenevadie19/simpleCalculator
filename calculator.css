@@ -1,0 +1,17 @@
+.calculator-root-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calculator-frame {
+    border: 2px solid blue;
+    width: 30%;
+    background-color: blue;
+}
+
+.calculator-buttons-group {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+}
