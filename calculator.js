@@ -172,3 +172,91 @@ function calculate() {
         numberTwo = 0;
     }
 }
+
+// Set up Three.js scene
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Create 3D objects to represent calculator UI elements
+const calculatorDisplayGeometry = new THREE.BoxGeometry(2, 0.5, 0.1);
+const calculatorDisplayMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const calculatorDisplayMesh = new THREE.Mesh(calculatorDisplayGeometry, calculatorDisplayMaterial);
+scene.add(calculatorDisplayMesh);
+
+const button1Geometry = new THREE.BoxGeometry(1, 1, 0.1);
+const button1Material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const button1Mesh = new THREE.Mesh(button1Geometry, button1Material);
+scene.add(button1Mesh);
+button1Mesh.position.set(-1, -1, 0);
+
+const button2Geometry = new THREE.BoxGeometry(1, 1, 0.1);
+const button2Material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const button2Mesh = new THREE.Mesh(button2Geometry, button2Material);
+scene.add(button2Mesh);
+button2Mesh.position.set(1, -1, 0);
+
+// Mouse interaction for rotation
+let isDragging = false;
+let previousMousePosition = {
+    x: 0,
+    y: 0
+};
+
+function onDocumentMouseDown(event) {
+    event.preventDefault();
+    isDragging = true;
+    previousMousePosition = {
+        x: event.clientX,
+        y: event.clientY
+    };
+}
+
+function onDocumentMouseMove(event) {
+    event.preventDefault();
+    if (isDragging) {
+        const deltaMove = {
+            x: event.clientX - previousMousePosition.x,
+            y: event.clientY - previousMousePosition.y
+        };
+
+        const deltaRotationQuaternion = new THREE.Quaternion()
+            .setFromEuler(new THREE.Euler(
+                toRadians(deltaMove.y * 1),
+                toRadians(deltaMove.x * 1),
+                0,
+                'XYZ'
+            ));
+
+        scene.quaternion.multiplyQuaternions(deltaRotationQuaternion, scene.quaternion);
+
+        previousMousePosition = {
+            x: event.clientX,
+            y: event.clientY
+        };
+    }
+}
+
+function onDocumentMouseUp(event) {
+    event.preventDefault();
+    isDragging = false;
+}
+
+function toRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
+
+document.addEventListener('mousedown', onDocumentMouseDown, false);
+document.addEventListener('mousemove', onDocumentMouseMove, false);
+document.addEventListener('mouseup', onDocumentMouseUp, false);
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+animate();
