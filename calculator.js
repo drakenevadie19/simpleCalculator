@@ -145,18 +145,30 @@ function clickClear() {
 
 function calculate() {
     if (operation === '+') {
-        console.log(numberOne + numberTwo);
+        let current = numberOne + numberTwo; 
+        console.log(current);
+        numberOne = current;
+        numberTwo = 0;
     }
 
     if (operation === '-') {
-        console.log(numberOne - numberTwo);
+        let current = numberOne - numberTwo; 
+        console.log(current);
+        numberOne = current;
+        numberTwo = 0;
     }
 
     if (operation === '*') {
-        console.log(numberOne * numberTwo);
+        let current = numberOne * numberTwo; 
+        console.log(current);
+        numberOne = current;
+        numberTwo = 0;
     }
 
     if (operation === '/') {
-        console.log(numberOne / numberTwo);
+        let current = numberOne / numberTwo; 
+        console.log(current);
+        numberOne = current;
+        numberTwo = 0;
     }
 }
