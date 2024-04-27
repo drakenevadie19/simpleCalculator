@@ -143,6 +143,27 @@ function clickClear() {
     console.log("currentNumber: " + currentNumber);
 }
 
+function clickReverseSigned() {
+    if (currentNumber === 1) {
+        numberOne = numberOne * (-1);
+        console.log(numberOne)
+    } else {
+        numberTwo = numberTwo * (-1);
+        console.log(numberTwo)
+    }
+}
+
+
+function clickPercentage() {
+    if (currentNumber === 1) {
+        numberOne = numberOne / 100;
+        console.log(numberOne)
+    } else {
+        numberTwo = numberTwo / 100;
+        console.log(numberTwo)
+    }
+}
+
 function calculate() {
     if (operation === '+') {
         let current = numberOne + numberTwo; 
@@ -186,18 +207,6 @@ const calculatorDisplayGeometry = new THREE.BoxGeometry(2, 0.5, 0.1);
 const calculatorDisplayMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 const calculatorDisplayMesh = new THREE.Mesh(calculatorDisplayGeometry, calculatorDisplayMaterial);
 scene.add(calculatorDisplayMesh);
-
-const button1Geometry = new THREE.BoxGeometry(1, 1, 0.1);
-const button1Material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-const button1Mesh = new THREE.Mesh(button1Geometry, button1Material);
-scene.add(button1Mesh);
-button1Mesh.position.set(-1, -1, 0);
-
-const button2Geometry = new THREE.BoxGeometry(1, 1, 0.1);
-const button2Material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const button2Mesh = new THREE.Mesh(button2Geometry, button2Material);
-scene.add(button2Mesh);
-button2Mesh.position.set(1, -1, 0);
 
 // Mouse interaction for rotation
 let isDragging = false;
