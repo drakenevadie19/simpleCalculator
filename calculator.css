@@ -20,6 +20,21 @@
 }
 
 .calculator-buttons-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.calculator-buttons-numbers-group {
     display: grid;
-    grid-template-columns: 50px 50px 50px;
+    width: 75%;
+    grid-template-columns: 32% 32% 32%;
+    gap: 1%;
+    row-gap: 1%;
+}
+
+.calculator-buttons-operators-group {
+    display: grid;
+    width: 25%;
+    grid-template-columns: 100%;
+    row-gap: 1%;
 }

@@ -15,15 +15,28 @@
             <div class="calculator-frame">
                 <div class="output"><p>Current</p></div>
                 <div class="calculator-buttons-group">
-                    <button type="button" class="btn btn-dark" onclick="clickNine()">9</button>
-                    <button type="button" class="btn btn-dark" onclick="clickEight()">8</button>
-                    <button type="button" class="btn btn-dark" onclick="clickSeven()">7</button>
-                    <button type="button" class="btn btn-dark" onclick="clickSix()">6</button>
-                    <button type="button" class="btn btn-dark" onclick="clickFive()">5</button>
-                    <button type="button" class="btn btn-dark" onclick="clickFour()">4</button>
-                    <button type="button" class="btn btn-dark" onclick="clickThree()">3</button>
-                    <button type="button" class="btn btn-dark" onclick="clickTwo()">2</button>
-                    <button type="button" class="btn btn-dark" onclick="clickOne()">1</button>
+                    <div class="calculator-buttons-numbers-group">
+                        <button type="button" class="btn btn-dark" onclick="clickClear()">AC</button>
+                        <button type="button" class="btn btn-dark" onclick="clickReverseSigned()">+/-</button>
+                        <button type="button" class="btn btn-dark" onclick="clickPercentage()">%</button>
+                        <button type="button" class="btn btn-dark" onclick="clickNine()">9</button>
+                        <button type="button" class="btn btn-dark" onclick="clickEight()">8</button>
+                        <button type="button" class="btn btn-dark" onclick="clickSeven()">7</button>
+                        <button type="button" class="btn btn-dark" onclick="clickSix()">6</button>
+                        <button type="button" class="btn btn-dark" onclick="clickFive()">5</button>
+                        <button type="button" class="btn btn-dark" onclick="clickFour()">4</button>
+                        <button type="button" class="btn btn-dark" onclick="clickThree()">3</button>
+                        <button type="button" class="btn btn-dark" onclick="clickTwo()">2</button>
+                        <button type="button" class="btn btn-dark" onclick="clickOne()">1</button>
+                        <button type="button" class="btn btn-dark" onclick="clickZero()">0</button>
+                    </div>
+                    <div class="calculator-buttons-operators-group">
+                        <button type="button" class="btn btn-dark" onclick="clickAddition()">+</button>
+                        <button type="button" class="btn btn-dark" onclick="clickSubstraction()">-</button>
+                        <button type="button" class="btn btn-dark" onclick="clickMultiplication()">x</button>
+                        <button type="button" class="btn btn-dark" onclick="clickDivision()">/</button>
+                        <button type="button" class="btn btn-dark" onclick="calculate()">=</button>
+                    </div>
                 </div>
             </div>
         </div>
